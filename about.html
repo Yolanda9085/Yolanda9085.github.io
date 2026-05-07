@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="bg-particles" id="particles"></div>
+
     <header>
         <nav>
             <div class="logo">Yolanda Deng</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About Me</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -27,13 +30,11 @@
                 <h3>Education</h3>
                 <p><strong>Macau University of Science and Technology (MUST)</strong></p>
                 <p>Bachelor of Software Engineering | Sep 2023 – Present</p>
-                
-                <p class="mt-2" style="margin-top: 10px;">
-                    <a href="https://github.com/Yolanda9085" target="_blank" style="color: #6d28d9; text-decoration: none; font-weight: bold;">
+                <p class="mt-2" style="margin-top:10px;">
+                    <a href="https://github.com/Yolanda9085" target="_blank" style="color:#6d28d9;text-decoration:none;font-weight:bold;">
                         <i class="fab fa-github"></i> View my Academic Projects on GitHub
                     </a>
                 </p>
-
                 <br>
                 <p><strong>Core Coursework:</strong></p>
                 <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
@@ -44,18 +45,13 @@
                     <li>Database Systems</li>
                 </ul>
             </article>
-
             <article class="card">
                 <h3>Technical Skills</h3>
                 <div class="skills-content text-sm space-y-3">
                     <p><strong>Programming Languages:</strong> Java (Core), JavaScript (ES6+), C, Python, SQL</p>
-                    
                     <p><strong>Web & Frameworks:</strong> Spring Boot, Spring Data JPA, Spring Security, Tailwind CSS, HTML5, CSS3</p>
-                    
                     <p><strong>Databases & Search:</strong> MySQL, Elasticsearch, SessionStorage/Caching</p>
-                    
-                    <p><strong>APIs & Specialized Tools:</strong> DeepSeek LLM API, AMap (LBS) API, <a href="https://github.com/Yolanda9085" target="_blank" style="color: #6d28d9; font-weight: bold;">Git/GitHub</a>, IntersectionObserver API</p>
-                    
+                    <p><strong>APIs & Specialized Tools:</strong> DeepSeek LLM API, AMap (LBS) API, <a href="https://github.com/Yolanda9085" target="_blank" style="color:#6d28d9;font-weight:bold;">Git/GitHub</a>, IntersectionObserver API</p>
                     <p><strong>Professional Knowledge:</strong> Object-Oriented Design (OOP), Algorithm Analysis, CPU Pipeline Simulation, Responsive Web Design</p>
                 </div>
             </article>
@@ -63,7 +59,26 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Yolanda. Designed and hand-coded from scratch. | <a href="https://github.com/Yolanda9085" target="_blank" style="color: inherit;"><i class="fab fa-github"></i> GitHub</a></p>
+        <p>&copy; 2026 Yolanda. Designed and hand-coded from scratch. | <a href="https://github.com/Yolanda9085" target="_blank" style="color:inherit;"><i class="fab fa-github"></i> GitHub</a></p>
     </footer>
+
+    <script>
+        (function() {
+            var c = document.getElementById('particles');
+            if (!c) return;
+            var colors = ['#7c3aed','#a78bfa','#c4b5fd','#f59e0b','#fbbf24','#fcd34d'];
+            for (var i = 0; i < 25; i++) {
+                var p = document.createElement('div');
+                p.className = 'particle';
+                var s = Math.random() * 8 + 3;
+                p.style.width = s + 'px'; p.style.height = s + 'px';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                p.style.animationDuration = (Math.random() * 6 + 6) + 's';
+                p.style.animationDelay = Math.random() * 5 + 's';
+                c.appendChild(p);
+            }
+        })();
+    </script>
 </body>
 </html>

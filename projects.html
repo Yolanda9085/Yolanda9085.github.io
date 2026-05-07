@@ -7,12 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="bg-particles" id="particles"></div>
+
     <header>
         <nav>
             <div class="logo">Yolanda Deng</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Me</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
                 <li><a href="projects.html" class="active">Projects</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -22,22 +25,19 @@
     <main>
         <h2 class="page-title">Featured Projects</h2>
         <section class="grid-container">
-            
-            <article class="card" style="grid-column: 1 / -1;">
+            <article class="card" style="grid-column:1/-1;">
                 <div class="card-body">
                     <h3 class="text-2xl mb-2">AzureTrade Campus Marketplace</h3>
                     <p class="mb-4"><strong>Role:</strong> Full Stack Developer | <strong>Time:</strong> Mar 2026 – May 2026</p>
-                    
                     <p class="mb-2 text-purple-600 font-bold">Project Overview:</p>
                     <p class="mb-4">A full-stack campus trading platform integrating DeepSeek LLM, AMap LBS, and a Spring Boot backend to support direct purchases and AI-assisted item bartering.</p>
-                    
                     <p class="mb-2 text-purple-600 font-bold">Core Achievements:</p>
                     <ul class="list-disc pl-5 mb-4 space-y-2 text-sm text-gray-700">
                         <li><strong>Full-Stack Architecture:</strong> Built RESTful APIs with Spring Boot & JPA, and developed a modular Vanilla JS frontend optimized with <code>IntersectionObserver</code> for infinite scrolling.</li>
                         <li><strong>AI Barter & LBS:</strong> Integrated DeepSeek API for smart inventory evaluation and matched it with AMap API & Elasticsearch for precise building-level location and fast retrieval.</li>
                         <li><strong>Social & Security:</strong> Implemented secure cookie-based authentication and designed complex database schemas for threaded comments and user reviews.</li>
                     </ul>
-                    <div class="tags mt-4">
+                    <div class="tags">
                         <span class="tag">Spring Boot</span>
                         <span class="tag">Elasticsearch</span>
                         <span class="tag">Vanilla JS</span>
@@ -46,22 +46,19 @@
                     </div>
                 </div>
             </article>
-
-            <article class="card" style="grid-column: 1 / -1;">
+            <article class="card" style="grid-column:1/-1;">
                 <div class="card-body">
                     <h3 class="text-2xl mb-2">Java-based Tetris Game Engine</h3>
                     <p class="mb-4"><strong>Role:</strong> Core Game Logic Developer | <strong>Time:</strong> Apr 2025 – May 2025</p>
-                    
                     <p class="mb-2 text-purple-600 font-bold">Project Overview:</p>
                     <p class="mb-4">A custom high-performance Tetris game engine built with Java Swing, focusing on robust OOP architecture and precise matrix-based algorithms.</p>
-                    
                     <p class="mb-2 text-purple-600 font-bold">Key Technical Features:</p>
                     <ul class="list-disc pl-5 mb-4 space-y-2 text-sm text-gray-700">
                         <li><strong>OOP & Matrix Mapping:</strong> Designed an abstract <code>Tetromino</code> architecture with 2D array mapping for granular boundary and bottom collision detection.</li>
                         <li><strong>State-Machine Rotation:</strong> Implemented a pre-computed 2D array state machine for instant block rotation, bypassing computationally heavy matrix mathematics.</li>
                         <li><strong>Safe-Spin Rollback:</strong> Engineered a robust test logic to temporarily clear grid blocks, validate next states, and instantly revert invalid moves to prevent bugs.</li>
                     </ul>
-                    <div class="tags mt-4">
+                    <div class="tags">
                         <span class="tag">Java Swing</span>
                         <span class="tag">OOP Design</span>
                         <span class="tag">Game Algorithms</span>
@@ -69,12 +66,30 @@
                     </div>
                 </div>
             </article>
-
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Yolanda. Designed and hand-coded from scratch.</p>
+        <p>&copy; 2026 Yolanda. Designed and hand-coded from scratch. | <a href="https://github.com/Yolanda9085" target="_blank" style="color:inherit;"><i class="fab fa-github"></i> GitHub</a></p>
     </footer>
+
+    <script>
+        (function() {
+            var c = document.getElementById('particles');
+            if (!c) return;
+            var colors = ['#7c3aed','#a78bfa','#c4b5fd','#f59e0b','#fbbf24','#fcd34d'];
+            for (var i = 0; i < 25; i++) {
+                var p = document.createElement('div');
+                p.className = 'particle';
+                var s = Math.random() * 8 + 3;
+                p.style.width = s + 'px'; p.style.height = s + 'px';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                p.style.animationDuration = (Math.random() * 6 + 6) + 's';
+                p.style.animationDelay = Math.random() * 5 + 's';
+                c.appendChild(p);
+            }
+        })();
+    </script>
 </body>
 </html>

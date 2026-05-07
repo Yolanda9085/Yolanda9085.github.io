@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbies | Yolanda</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ===== Hobbies 专属样式 ===== */
+        .hobby-section {
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+        .hobby-section:nth-child(1) { animation-delay: 0.1s; }
+        .hobby-section:nth-child(2) { animation-delay: 0.2s; }
+        .hobby-section:nth-child(3) { animation-delay: 0.3s; }
+
+        .hobby-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .hobby-header .hobby-icon {
+            font-size: 2.5rem;
+            background: rgba(255,255,255,0.9);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(124,58,237,0.1);
+        }
+        .hobby-header h2 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+        }
+        .hobby-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* 照片网格 */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+        .photo-grid.single {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+        }
+
+        .photo-card {
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .photo-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(124,58,237,0.15);
+            border-color: var(--primary-color);
+        }
+        .photo-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .photo-card:hover img {
+            transform: scale(1.05);
+        }
+        .photo-card .caption {
+            padding: 0.8rem 1rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* 灯箱 */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 10px;
+            animation: fadeIn 0.3s ease;
+        }
+        .lightbox .close {
+            position: absolute;
+            top: 20px; right: 30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .lightbox .close:hover { transform: scale(1.2); }
+        .lightbox .caption {
+            color: white;
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+            .photo-card img { height: 180px; }
+            .hobby-header h2 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-particles" id="particles"></div>
+
+    <header>
+        <nav>
+            <div class="logo">Yolanda Deng</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="hobbies.html" class="active">Hobbies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="page-title">My Hobbies</h2>
+        <p style="text-align:center;color:var(--text-muted);margin-bottom:3rem;">Life outside of code ✨</p>
+
+        <!-- ===== 追星 ===== -->
+        <div class="hobby-section">
+            <div class="hobby-header">
+                <div>
+                    <h2>K-pop & Fan Culture</h2>
+                    <p>Collecting albums, attending concerts, and supporting my favorite groups.</p>
+                </div>
+            </div>
+            <div class="photo-grid">
+                <div class="photo-card" onclick="openLightbox(this)">
+                    <img src="star-1.jpg" alt="With Hendery" >
+                    <div class="caption">Hendery</div>
+                </div>
+                <div class="photo-card" onclick="openLightbox(this)">
+                    <img src="star-2.jpg" alt="With SoHyun" >
+                    <div class="caption">SoHyun</div>
+                </div>
+                <div class="photo-card" onclick="openLightbox(this)">
+                    <img src="star-3.jpg" alt="With Sun Ruiyang" >
+                    <div class="caption">Sun Ruiyang</div>
+                </div>
+                <div class="photo-card" onclick="openLightbox(this)">
+                    <img src="star-4.jpg" alt="Mingbo Zhang" >
+                    <div class="caption">Mingbo Zhang</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 开车 ===== -->
+        <div class="hobby-section">
+            <div class="hobby-header">
+                <div>
+                    <h2>Driving</h2>
+                    <p>Nothing beats a late-night drive with good music and open roads.</p>
+                </div>
+            </div>
+            <div class="photo-grid single">
+                <div class="photo-card" onclick="openLightbox(this)">
+                    <img src="drive-1.jpg" alt="My Car" onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&h=350&fit=crop'">
+                    <div class="caption">My happy place 🛣️</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 撸猫 ===== -->
+        <div class="hobby-section">
+            <div class="hobby-header">
+                <div>
+                    <h2>Cat Lover</h2>
+                    <p>Spending quality time with my furry friends. They make every day better.</p>
+                </div>
+            </div>
+            <div class="photo-grid">
+                <div class="photo-card" onclick="openLightbox(this)">
+                    <img src="cat-1.jpg" alt="Cat sleeping" onerror="this.src='https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=300&fit=crop'">
+                    <div class="caption">Enjoy Cat</div>
+                </div>
+                <div class="photo-card" onclick="openLightbox(this)">
+                    <img src="cat-2.jpg" alt="Cat playing" onerror="this.src='https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400&h=300&fit=crop'">
+                    <div class="caption">Cat Playing</div>
+                </div>
+                <div class="photo-card" onclick="openLightbox(this)">
+                    <img src="cat-3.jpg" alt="Cat staring" onerror="this.src='https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=400&h=300&fit=crop'">
+                    <div class="caption">Judging me</div>
+                </div>
+                <div class="photo-card" onclick="openLightbox(this)">
+                    <img src="cat-4.jpg" alt="Cat cuddling" onerror="this.src='https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=400&h=300&fit=crop'">
+                    <div class="caption">Cuddle time</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 灯箱 -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="close">&times;</span>
+        <img src="" alt="" id="lightbox-img">
+        <p class="caption" id="lightbox-caption"></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Yolanda. Designed and hand-coded from scratch. | <a href="https://github.com/Yolanda9085" target="_blank" style="color: inherit;">GitHub</a></p>
+    </footer>
+
+    <script>
+        // 粒子背景
+        (function() {
+            var container = document.getElementById('particles');
+            if (!container) return;
+            var colors = ['#7c3aed', '#a78bfa', '#c4b5fd', '#f59e0b', '#fbbf24', '#fcd34d'];
+            for (var i = 0; i < 25; i++) {
+                var p = document.createElement('div');
+                p.className = 'particle';
+                var size = Math.random() * 8 + 3;
+                p.style.width = size + 'px';
+                p.style.height = size + 'px';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                p.style.animationDuration = (Math.random() * 6 + 6) + 's';
+                p.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(p);
+            }
+        })();
+
+        // 灯箱
+        function openLightbox(card) {
+            var img = card.querySelector('img');
+            var caption = card.querySelector('.caption');
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox-caption').textContent = caption ? caption.textContent : '';
+            document.getElementById('lightbox').classList.add('active');
+            event.stopPropagation();
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>

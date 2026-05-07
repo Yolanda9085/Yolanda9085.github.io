@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yolanda | Home</title>
-    <!-- 引入外部样式表 -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="bg-particles" id="particles"></div>
+
     <header>
         <nav>
             <div class="logo">Yolanda Deng</div>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About Me</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -29,14 +31,32 @@
                 <a href="projects.html" class="btn">View My Work</a>
             </div>
             <div class="hero-image">
-                <!-- 在这里替换成你的真实头像/照片路径 -->
-                <img src="profile.jpg" alt="Portrait of Yolanda">
+                <img src="profile.jpg" alt="Portrait of Yolanda" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=width:300px;height:300px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#f59e0b);display:flex;align-items:center;justify-content:center;font-size:5rem;color:white;border:4px solid white;box-shadow:0 20px 60px rgba(124,58,237,0.2);margin:auto>YD</div>';">
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Yolanda. Designed and hand-coded from scratch.</p>
+        <p>&copy; 2026 Yolanda. Designed and hand-coded from scratch. | <a href="https://github.com/Yolanda9085" target="_blank" style="color: inherit;"><i class="fab fa-github"></i> GitHub</a></p>
     </footer>
+
+    <script>
+        (function() {
+            var c = document.getElementById('particles');
+            if (!c) return;
+            var colors = ['#7c3aed','#a78bfa','#c4b5fd','#f59e0b','#fbbf24','#fcd34d'];
+            for (var i = 0; i < 25; i++) {
+                var p = document.createElement('div');
+                p.className = 'particle';
+                var s = Math.random() * 8 + 3;
+                p.style.width = s + 'px'; p.style.height = s + 'px';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                p.style.animationDuration = (Math.random() * 6 + 6) + 's';
+                p.style.animationDelay = Math.random() * 5 + 's';
+                c.appendChild(p);
+            }
+        })();
+    </script>
 </body>
 </html>
